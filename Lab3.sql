@@ -1,3 +1,4 @@
+
 --TASK1
 
 SELECT first_name Имя, last_name Фамилия,
@@ -33,3 +34,5 @@ DEPARTMENTS WHERE department_name = 'Sales'));
 SELECT first_name Имя, last_name Фамилия
 FROM employees e WHERE (SELECT count(*) FROM employees WHERE
 e.employee_id = e.manager_id) = 0;
+
+
