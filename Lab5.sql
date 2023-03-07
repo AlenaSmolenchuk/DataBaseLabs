@@ -1,3 +1,4 @@
+
 --TASK 1
 
 SELECT * FROM bd_employees WHERE email ~ '.*\D.*\D.*\D.*@.+';
@@ -45,10 +46,10 @@ as sum from bd_employees;
 
 --TASK 7
 
---CREATE VIEW dep_staff_counts as
---SELECT department as "department",
---count(id) as "ecount"
---FROM staff GROUP BY department;
+CREATE VIEW dep_staff_counts as
+SELECT department as "department",
+count(id) as "ecount"
+FROM staff GROUP BY department;
 
 --TASK 2*
 
@@ -56,3 +57,4 @@ SELECT last_name, regexp_replace(street, 'shosse','city'), postal_code FROM
 bd_employees, bd_departments
 WHERE bd_employees.department_id = bd_departments.id
 AND last_name ~ '^[A-Z][a-z]+$' ;
+
