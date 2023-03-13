@@ -45,6 +45,26 @@ update staff set id = id-2 where id in (select id from help where hSecond_name i
 
 --Task5
 
+CREATE OR REPLACE PROCEDURE birthday_boys(month integer) as $$
+DECLARE
+attr_e record;
+a integer;
+BEGIN
+a:=0;
+FOR attr_e in (SELECT * FROM people where extract(month from birthday) = month)
+LOOP
+raise info '% % % ',attr_e.last_name,attr_e.first_name,attr_e.second_name;
+a := a+1;
+END LOOP;
+raise info '%',a;
+raise info '%', (SELECT max(extract(year from age(NOW(),birthday))) from staff where extract(month from birthday) = month);
+raise info '%', (SELECT min(extract(year from age(NOW(),birthday))) from staff  where extract(month from birthday) = month);
+raise info '%', (SELECT round(avg(extract(year from age(NOW(),birthday))),2) from staff  where extract(month from birthday) = month);
+END
+$$
+LANGUAGE plpgsql;
+call birthday_boys(3);
+
 --Task6
 
 WITH RECURSIVE rstaff(id, head_id, len) AS(
