@@ -24,6 +24,15 @@ SELECT * FROM staff;
 
 --Task3
 
+select s1.last_name, 
+       s1.first_name,
+       s1.second_name,
+       s1.post,
+       s2.last_name,
+       s2.first_name,
+       s2.second_name,
+       s2.post from staff s1 left join staff s2 on s1.head_id = s2.id;
+
 --Task4
 
 with help as (
