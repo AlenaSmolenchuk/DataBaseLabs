@@ -64,6 +64,10 @@ END
 $$
 LANGUAGE plpgsql;
 call birthday_boys(3);
+call birthday_boys(1);
+call birthday_boys(2);
+call birthday_boys(11);
+call birthday_boys(12);
 
 --Task6
 
