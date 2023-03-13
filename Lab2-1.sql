@@ -1,5 +1,18 @@
 --Task1
 
+create table staff(
+id integer not null primary key,
+last_name varchar(64) not null,
+first_name varchar(64)not null,
+second_name varchar(64),
+sex char not null check(sex = 'м' or sex = 'ж'),
+birthday date not null,
+post varchar(128) not null,
+department varchar(128) not null,
+unique(post, department),
+head_id integer references staff(id)
+);
+
 --Task2
 
 -- DROP SEQUENCE staff_id_seq;
