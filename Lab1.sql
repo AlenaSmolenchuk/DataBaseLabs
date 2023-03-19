@@ -2,7 +2,7 @@ CREATE TABLE Countries (
  id_country INTEGER PRIMARY KEY,
  name_coutry VARCHAR(64) NOT NULL
 );
-
+ 
 CREATE TABLE Exhibits (
  id_exhibit VARCHAR(32) PRIMARY key,
  name_exhibit VARCHAR(2000) NOT NULL UNIQUE,
