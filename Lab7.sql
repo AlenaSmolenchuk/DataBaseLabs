@@ -1,5 +1,5 @@
 --1
-
+ 
 CREATE TABLE operations(
 id int PRIMARY KEY,
 account_number int,
