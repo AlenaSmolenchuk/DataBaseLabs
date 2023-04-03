@@ -15,7 +15,7 @@ of less than 100 kg.
 
 # TASK 4
 Change the end dates of the contract for all products of the company "horns and
-hooves", adding one additional month to them.
+hooves"("Рога и копыта"), adding one additional month to them.
 
 # TASK 5 
 Add information about the fragility of goods to the database without creating
