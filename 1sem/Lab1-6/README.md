@@ -29,9 +29,15 @@ the ID of the boss to the ID of the boss of their boss.
 Create a spiral table with 5 fields f1, f2, f3, f4, f5 – integers.
 Write a program in PL/SQL that fills this table with 1000
 rows according to the following principle:
+
 1 3 5 7 9
+
 2 4 6 8 10
+
 20 18 16 14 12
+
 19 17 15 13 11
+
 21 23 25 27 29
+
 …
