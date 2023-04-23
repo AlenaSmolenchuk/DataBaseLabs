@@ -1,12 +1,12 @@
 # The general part of the tasks:
 
-* create a trigger that controls the condition specified in task 0 of your variant.
+* Create a trigger that controls the condition specified in task 0 of your variant.
 
-* write a function that calculates the information specified in task 1 of your option.
+* Write a function that calculates the information specified in task 1 of your option.
 
-* write an aggregate function that calculates the information specified in task 2 of your option.
+* Write an aggregate function that calculates the information specified in task 2 of your option.
 
-* create a view and a trigger that implement the condition specified in task 3 of your option.
+* Create a view and a trigger that implement the condition specified in task 3 of your option.
 
 * Solve the problem specified in paragraph 4 of your option.
 
