@@ -20,6 +20,41 @@ $$ language plpgsql;
 SELECT * FROM count_product('Кот в сапогах', '2029-12-31');
 
 --task 2
+
+CREATE OR REPLACE FUNCTION max_dimensions_func(
+  dimensions numeric[],
+  height numeric,
+  width numeric,
+  lenght numeric
+)
+RETURNS numeric[]
+AS $$
+BEGIN
+  dimensions[1] = greatest(dimensions[1], height);
+  dimensions[2] = greatest(dimensions[2], width);
+  dimensions[3] = greatest(dimensions[3], lenght);
+  RETURN dimensions;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION max_dimensions_finalfunc(dimensions numeric[])
+RETURNS text
+AS $$
+BEGIN
+  RETURN dimensions[1] || ' X ' || dimensions[2] || ' X ' || dimensions[3];
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE AGGREGATE max_dimensions(numeric, numeric, numeric)
+(
+  sfunc = max_dimensions_func,
+  stype = numeric[],
+  finalfunc = max_dimensions_finalfunc
+);
+
+
+SELECT max_dimensions(high_pr, width_pr, lenght_pr) FROM "Product";
+
 --task 3 
 
 CREATE OR REPLACE VIEW cl_view AS
