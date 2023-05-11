@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS public."Client"
     CONSTRAINT "Client_pkey" PRIMARY KEY (id_client),
     CONSTRAINT data_cl UNIQUE (name_cl, bank_doc)
 );   
- 
+  
 CREATE TABLE IF NOT EXISTS public."Contract"
 (
     contract_id integer,
