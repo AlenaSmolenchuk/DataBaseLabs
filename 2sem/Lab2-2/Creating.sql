@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS public."Place"
     rack_id integer NOT NULL,
     CONSTRAINT "Place_pkey" PRIMARY KEY (place_id)
 );
-
+ 
 CREATE TABLE IF NOT EXISTS public."Product"
 (
     id_product integer,
