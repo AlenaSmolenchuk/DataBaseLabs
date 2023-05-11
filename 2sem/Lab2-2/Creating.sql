@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS public."Contract"
     CONSTRAINT "Contract_pkey" PRIMARY KEY (contract_id),
     CONSTRAINT data_con UNIQUE (started_at, c_number, finished_at)
 );
-
+ 
 CREATE TABLE IF NOT EXISTS public."Place"
 (
     place_id integer,
