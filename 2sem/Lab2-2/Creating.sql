@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS public."Client"
     bank_doc character varying(1024) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "Client_pkey" PRIMARY KEY (id_client),
     CONSTRAINT data_cl UNIQUE (name_cl, bank_doc)
-);
+); 
  
 CREATE TABLE IF NOT EXISTS public."Contract"
 (
