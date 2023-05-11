@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS public."Client"
 );   
   
 CREATE TABLE IF NOT EXISTS public."Contract"
-(
+( 
     contract_id integer,
     started_at date NOT NULL,
     finished_at date NOT NULL,
