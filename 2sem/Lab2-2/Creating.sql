@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS public."Contract"
 );
  
 CREATE TABLE IF NOT EXISTS public."Place"
-(
+( 
     place_id integer,
     high_pl numeric NOT NULL,
     lenght_pl numeric NOT NULL,
