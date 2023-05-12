@@ -1,36 +1,53 @@
---task 0
-CREATE OR REPLACE FUNCTION check_rack_capacity() RETURNS trigger AS $$
+--Task 0
+
+CREATE OR REPLACE FUNCTION count_pr() RETURNS TRIGGER AS $$
 DECLARE
-    rack_max_weight numeric;
-    rack_current_weight numeric;
-BEGIN
-    -- Получаем максимальную нагрузку стеллажа
-    SELECT quantity INTO rack_max_weight 
-	FROM "Rack"
-	WHERE id_rack = OLD.id_rack;
-    
-    -- Получаем текущий вес товаров на стеллаже
-    SELECT COALESCE(SUM(weight_pr), 0) INTO rack_current_weight
-	FROM "Product"
-	WHERE id_place IN (SELECT place_id FROM "Place" WHERE rack_id = OLD.id_rack);
-    
-    -- Если попытка добавить товар на стеллаж приведет к превышению его максимальной нагрузки, выбрасываем ошибку
-    IF (TG_OP = 'INSERT' AND rack_current_weight + NEW.weight_pr > rack_max_weight)
-	OR (TG_OP = 'UPDATE' AND rack_current_weight > rack_max_weight) THEN
-        RAISE EXCEPTION 'НАГРУЗКА НА СТЕЛЛАЖ ПРЕВЫШЕНА';
-    END IF;
-    
-    RETURN NEW;
+  count_place integer;
+BEGIN 
+	SELECT count(*) into count_place from "Place" 
+   
+  join "Rack" ON "Rack".id_rack = "Place".rack_id
+  where "Rack".id_rack = new.rack_id;
+  
+  if count_place >= (select quantity from "Rack" 
+             where id_rack = new.rack_id) then
+    raise info 'Количество товаров превышено';
+    return null;
+  end if;
+  return new;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER check_rack_capacity_trigger
-    BEFORE INSERT OR UPDATE OR DELETE ON public."Product"
-    FOR EACH ROW
-    EXECUTE FUNCTION check_rack_capacity();
+CREATE OR REPLACE TRIGGER new_good_count
+BEFORE INSERT OR UPDATE ON "Place"
+FOR EACH ROW EXECUTE PROCEDURE count_pr();
 
+
+CREATE OR REPLACE FUNCTION max_load_rack() RETURNS TRIGGER AS $$
+DECLARE 
+  max_load_r integer;
+BEGIN
+  select sum("Product".weight_pr) into max_load_r from "Place" 
+    left join "Product" on "Product".id_place = "Place".place_id  
+    join "Rack" ON "Rack".id_rack = "Place".rack_id
+    where "Rack".id_rack = new.id_rack;
+  if max_load_r is null then
+    max_load_r = 0;
+  end if;
+  if new.max_load < max_load_r then 
+    raise info 'Нагрузка стеллажа превышена';
+    return null;
+  end if;
+  return new;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER update_max_load
+BEFORE UPDATE ON "Rack"
+FOR EACH ROW EXECUTE PROCEDURE max_load_rack();
 
 --task 1
+
 DROP FUNCTION count_product(text,date);
 CREATE OR REPLACE FUNCTION count_product(name_c text, date_cur date) 
 RETURNS integer AS $$
@@ -45,9 +62,6 @@ DECLARE
 			RETURN counter;
 			END;
 $$ LANGUAGE plpgsql;
-
-SELECT * FROM count_product('Кот в сапогах', '2029-12-31');
-
 
 --task 2
 
@@ -82,11 +96,8 @@ CREATE OR REPLACE AGGREGATE max_dimensions(numeric, numeric, numeric)
   finalfunc = max_dimensions_finalfunc
 );
 
-
-SELECT max_dimensions(high_pr, width_pr, lenght_pr) FROM "Product";
-
-
 --task 3 
+
 CREATE OR REPLACE VIEW cl_view AS
 SELECT "Client".id_client, "Client".name_cl, "Client".bank_doc,
        "Product".id_product
@@ -94,9 +105,6 @@ FROM "Client"
      JOIN "Contract" ON "Client".id_client = "Contract".client_id
 	 LEFT JOIN "Product" ON "Contract".contract_id = "Product".id_contract
 GROUP BY "Product".id_product, "Client".id_client;
-	 
-SELECT * FROM cl_view;
-
 
 CREATE OR REPLACE FUNCTION update_client_description()
 RETURNS TRIGGER AS $$
@@ -117,10 +125,10 @@ EXECUTE FUNCTION update_client_description();
 
 --task 4
     
-CREATE TABLE queue (
-id SERIAL PRIMARY KEY,
-data VARCHAR(64) NOT NULL
-);
+-- CREATE TABLE queue (
+-- id SERIAL PRIMARY KEY,
+-- data VARCHAR(64) NOT NULL
+-- );
 
 CREATE OR REPLACE PROCEDURE  enqueue(item VARCHAR(64)) AS $$
 BEGIN
@@ -147,7 +155,10 @@ $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE PROCEDURE init() AS $$
 BEGIN
-  TRUNCATE TABLE queue;
+	CREATE TABLE IF NOT EXISTS queue (
+	id SERIAL PRIMARY KEY,
+	data VARCHAR(64) NOT NULL
+	);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -165,7 +176,6 @@ $$ LANGUAGE plpgsql;
 
 -- Инициализация очереди
 CALL init();
-
 -- Добавление элемента в конец очереди
 CALL enqueue('first');
 CALL enqueue('second');
