@@ -1,5 +1,4 @@
-# Загрузка настроек проекта (в данном случае только настроек соединения с БД)
-# из файла config.yaml.
+
 import yaml
 
 class ProjectConfig:
@@ -14,8 +13,6 @@ class ProjectConfig:
             self.host = config['host']
             self.dbtableprefix = config['dbtableprefix']
 
-# Этот метод запускается только, если запускать
-# данный файл, а не подключать его.
 if __name__ == "__main__":
     x = ProjectConfig()
     print(x.dbfilepath)
