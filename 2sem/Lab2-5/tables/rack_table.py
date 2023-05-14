@@ -1,5 +1,3 @@
-# таблица Rack и особые действия с ней.
-
 from dbtable import *
 
 class RackTable(DbTable):
