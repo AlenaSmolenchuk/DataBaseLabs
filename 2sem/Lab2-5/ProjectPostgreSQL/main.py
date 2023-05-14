@@ -98,7 +98,6 @@ class Main:
                 return next_step
 
     def show_add_person(self):
-        # Не реализована проверка на максимальную длину строк. Нужно доделать самостоятельно!
         data = []
         data.append(input("Введите имя (1 - отмена): ").strip())
         if data[0] == "1":
