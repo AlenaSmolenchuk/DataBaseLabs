@@ -1,5 +1,3 @@
-# таблица Rooms и особые действия с ней.
-
 from dbtable import *
 
 class RoomsTable(DbTable):
