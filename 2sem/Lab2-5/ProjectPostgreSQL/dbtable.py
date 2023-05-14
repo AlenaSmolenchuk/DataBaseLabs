@@ -1,5 +1,3 @@
-# Базовые действия с таблицами
-
 from dbconnection import *
 
 class DbTable:
