@@ -4,7 +4,7 @@ class RackTable(DbTable):
     def table_name(self):
         return self.dbconn.prefix + "Rack"
 
-    def columns(self):
+    def columns( self):
         return {"id_rack": ["integer", "NOT NULL", "PRIMERY KEY"],
                 "number": ["integer", "NOT NULL"],
                 "quantity": ["integer", "NOT NULL"],
