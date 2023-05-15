@@ -1,5 +1,5 @@
 from dbtable import *
-
+ 
 class RackTable(DbTable):
     def table_name(self):
         return self.dbconn.prefix + "Rack"
