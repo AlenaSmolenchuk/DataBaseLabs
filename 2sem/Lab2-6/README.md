@@ -1,6 +1,8 @@
 # Task 
 
 Design a database based on the domain description:
+
+
 Description of the Football Championship information system. Includes
 : players, teams, countries or clubs, a grid of games, tables of results.
 The description of the players includes: surname, first name, date of birth, country.
