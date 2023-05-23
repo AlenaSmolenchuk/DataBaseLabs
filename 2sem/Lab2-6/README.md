@@ -1,6 +1,6 @@
 # Task 
 
-//Design a database based on the domain description:
+Design a database based on the domain description:
    
   
 Description of the Football Championship information system. Includes
