@@ -3,4 +3,4 @@ dbname: postgres
 user: public 
 password: 12345 
 host: 192.168.0.48 
-dbtableprefix: "public."  # Замените на свой логин от БД
+dbtableprefix: "public."  
