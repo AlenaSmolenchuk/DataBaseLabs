@@ -1,6 +1,6 @@
 CREATE TABLE Countries (    
- id_country INTEGER PRIMARY KEY,
- name_coutry VARCHAR(64) NOT NULL
+id_country INTEGER PRIMARY KEY,
+name_coutry VARCHAR(64) NOT NULL
 );
  
 CREATE TABLE Exhibits (
