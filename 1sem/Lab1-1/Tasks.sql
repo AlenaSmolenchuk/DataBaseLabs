@@ -15,6 +15,7 @@ CREATE TABLE Exhibits (
  insurance NUMERIC(10,2) NOT NULL DEFAULT 20000,
  country INTEGER NOT NULL REFERENCES Countries(id_country),
  CHECK (year > 1900)
+
 );
 
  SELECT * FROM Countries;
