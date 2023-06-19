@@ -3,7 +3,7 @@ The name is a non–empty text field of arbitrary length (no more than 64 charac
 The identifier is not an empty integer, by the value of which you can determine the values
 of all other fields in the table.
  
-Create a table "Exhibits", which contains the following fields: ID,
+Create a table "Exhibits", which  contains the following fields: ID,
 name, collection, year of creation, technique, insurance value,
 country identifier. Title, collection, technique of execution – text not empty fields, arbitrary (not
 more than 2000 characters) in length. The name field is unique. The identifier is not an empty string
