@@ -1,7 +1,7 @@
 Create a "Countries" table that contains the following fields: ID, name.
 The name is a non–empty text field of arbitrary length (no more than 64 characters).
 The identifier is not an empty integer, by the value of which you can determine the values
-of all other fields in the table. 
+of all other fields in the table.  
  
 Create a table "Exhibits", which contains the following fields: ID,
 name, collection, year of creation, technique, insurance value,
