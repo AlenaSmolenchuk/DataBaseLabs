@@ -72,6 +72,7 @@ LOOP;
 begin_date));
 END
 $$ LANGUAGE plpgsql;
+
 call statement_of_acount('2000-01-01 00:00:0.0', '2013-12-31 00:00:0.0',1200);
 
 --3
