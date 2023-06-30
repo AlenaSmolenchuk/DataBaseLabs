@@ -79,7 +79,6 @@ call statement_of_acount('2000-01-01 00:00:0.0', '2013-12-31 00:00:0.0',1200);
 
 CREATE OR REPLACE PROCEDURE account_operation(account_number int,
  id int,
-
 operation_sum double precision)
  AS $$
 BEGIN
