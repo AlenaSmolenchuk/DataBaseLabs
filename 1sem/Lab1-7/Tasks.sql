@@ -13,6 +13,7 @@ int, operation_date timestamp,
 operation_type char,
 CHECK(operation_type in ('-','+'))
 );
+
 INSERT INTO operations VALUES
 (1, 1200,'Снятие',150000),
 (2, 2400,'Внесение',-340),
