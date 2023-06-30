@@ -6,6 +6,7 @@ account_number int,
 operation_name text,
 operation_sum double precision
 );
+
 CREATE TABLE operations_log(
 operation_id int, account_number
 int, operation_date timestamp,
