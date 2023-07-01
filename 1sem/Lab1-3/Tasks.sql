@@ -1,9 +1,12 @@
 
 --TASK1
 
-SELECT first_name Имя, last_name Фамилия,
-job_title Должность, trunc(j.max_salary - e.salary,0) Разница
-FROM Jobs j JOIN employees e ON j.job_id=e.job_id ORDER BY Разница
+SELECT first_name Имя, 
+last_name Фамилия,
+job_title Должность, 
+trunc(j.max_salary - e.salary,0) Разница
+FROM Jobs j JOIN employees e ON j.job_id=e.job_id 
+ORDER BY Разница
 DESC;
 
 --TASK2
