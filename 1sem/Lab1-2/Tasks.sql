@@ -2,10 +2,10 @@
 --TASK1
 
 select (i*55-i) as "X" from (select 1 as i union
- select 2 as i union
- select 3 as i union
- select 4 as i union
- select 5 as i) as S order by "X" ASC ;
+select 2 as i union
+select 3 as i union
+select 4 as i union
+select 5 as i) as S order by "X" ASC ;
  
 --TASK2
 
