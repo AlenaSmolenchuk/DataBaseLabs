@@ -27,5 +27,6 @@ select job_id as "Должность",
 trunc(max(salary),0) as "Максимальная зарплата" ,
 trunc(min(salary),0) as "Минимальная зарплата",
 to_char(avg(salary), '99999.00') as "Средняя зарплата"
-from EMPLOYEES group by job_id ;
+from EMPLOYEES 
+group by job_id ;
 
