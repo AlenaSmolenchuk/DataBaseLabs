@@ -18,6 +18,6 @@ CREATE TABLE Exhibits (
 
 );
 
- SELECT * FROM Countries;
+SELECT * FROM Countries;
  
- SELECT * FROM Exhibits;
+SELECT * FROM Exhibits;
