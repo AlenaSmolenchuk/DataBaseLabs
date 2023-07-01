@@ -15,10 +15,10 @@ select * from EMPLOYEES where department_id = 50;
 
 select first_name as "Имя",
 last_name as "Фамилия", case
- when job_id = 'SA_REP' then 'Торговый представитель'
- when job_id = 'SA_MAN' then 'Менеджер по продажам'
- else 'Другое'
- end as "Должность"
+when job_id = 'SA_REP' then 'Торговый представитель'
+when job_id = 'SA_MAN' then 'Менеджер по продажам'
+else 'Другое'
+end as "Должность"
 from EMPLOYEES;
 
 --TASK4
