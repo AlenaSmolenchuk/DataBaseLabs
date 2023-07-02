@@ -49,7 +49,8 @@ as sum from bd_employees;
 CREATE VIEW dep_staff_counts as
 SELECT department as "department",
 count(id) as "ecount"
-FROM staff GROUP BY department;
+FROM staff 
+GROUP BY department;
 
 --TASK 2*
 
