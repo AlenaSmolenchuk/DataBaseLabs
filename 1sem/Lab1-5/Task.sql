@@ -4,7 +4,7 @@
 SELECT * FROM bd_employees WHERE email ~ '.*\D.*\D.*\D.*@.+';
 
 --TASK 2
-
+ 
 SELECT last_name, street, postal_code FROM bd_employees, bd_departments
 WHERE bd_employees.department_id = bd_departments.id
 AND last_name ~ '^[A-Z][a-z]+$' ;
