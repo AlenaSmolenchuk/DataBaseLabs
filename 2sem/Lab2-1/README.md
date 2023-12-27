@@ -1,5 +1,15 @@
 # Task 1
-Create a staff table containing the following fields: id (id), last_name (surname), first_name (first name), second_name (patronymic), sex (gender), birthday (date of birth), post (position), department (department), head_id (boss ID). The id field is intended for storing a number of the maximum allowable length. It is the key of the table. The last_name, first_name and second_name fields are 64 bytes long text fields. The first two of them cannot be empty. The gender field is designed to store a single character, cannot be empty, and allows only the values "m" and "f". The post and department fields are 128 bytes long text fields. Their values cannot be empty and must form unique pairs. The birthday field is intended for storing the date and cannot be empty. The head_id field belongs to the same data type as the id field. It is also a foreign key referring to the id field of the same staff table.
+Create a staff table containing the following fields: 
+id (id),
+last_name (surname),
+first_name (first name),
+second_name (patronymic),
+sex (gender),
+birthday (date of birth),
+post (position),
+department (department),
+head_id (boss ID).
+The id field is intended for storing a number of the maximum allowable length. It is the key of the table. The last_name, first_name and second_name fields are 64 bytes long text fields. The first two of them cannot be empty. The gender field is designed to store a single character, cannot be empty, and allows only the values "m" and "f". The post and department fields are 128 bytes long text fields. Their values cannot be empty and must form unique pairs. The birthday field is intended for storing the date and cannot be empty. The head_id field belongs to the same data type as the id field. It is also a foreign key referring to the id field of the same staff table.
 
 # Task 2
 Create an increasing sequence of staff_id_seq.
