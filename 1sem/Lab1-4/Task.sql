@@ -1,8 +1,10 @@
 
 --TASK 1
 
-CREATE TABLE deps( id integer primary key, name varchar(64) not null, region
-varchar(64) not null );
+CREATE TABLE deps( 
+id integer primary key, 
+name varchar(64) not null, 
+region varchar(64) not null );
 
 --TASK 2
 
