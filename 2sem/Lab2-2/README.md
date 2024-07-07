@@ -2,7 +2,7 @@
 
 Description of the goods stored in the warehouse.
 
-Includes: description 
+Includes: description  
 of premises, description of racks, description of customers, description of goods
 stored on racks. The description of the room consists of: name,
 useful volume, temperature and humidity conditions.
